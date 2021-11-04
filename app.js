@@ -12,14 +12,14 @@ const rutas = require('./rutas/rutas');
 app.set('port', process.env.PORT || 5000);
 
 //CONFIG (Conexión BD y Sesiones)
-app.use(morgan('dev'));
+app.use(morgan('start'));
 app.use(myConnection(mysql, {
     host: 'mysql-andres-tellez.alwaysdata.net',
     user: '247808_andres',
     password: 'sql2415david',
     port: 3306,
     database: 'andres_tellez_sistema'
-}, 'single'));
+}, 'pool'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors())
