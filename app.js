@@ -14,11 +14,11 @@ app.set('port', process.env.PORT || 5000);
 //CONFIG (Conexión BD y Sesiones)
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    host: 'mysql-andres-tellez.alwaysdata.net',
+    user: '247808_andres',
+    password: 'sql2415david',
     port: 3306,
-    database: 'sistema'
+    database: 'andres_tellez_sistema'
 }, 'single'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
