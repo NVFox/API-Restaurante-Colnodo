@@ -18,7 +18,7 @@ app.use(myConnection(mysql, {
     user: '247808_andres',
     password: 'sql2415david',
     port: 3306,
-    database: 'andres_tellez_sistema'
+    database: 'andres-tellez_sistema'
 }, 'pool'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
