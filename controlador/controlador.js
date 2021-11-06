@@ -77,19 +77,26 @@ controlador.loginHandler = (req, res) => {
         conn.query("SELECT * FROM usuarios WHERE usuNombre = ?", [data.usuNombre], (err, results) => {
             if (err) {
                 res.json({
-                    message: 'Los datos introducidos no existen',
+                    message: 'Un error inesperado ha ocurrido',
                     type: 'danger'
                 })
-            } else if (data.usuContraseña === results[0].usuContraseña) {
-                res.json({
-                    usuId: results[0].usuId,
-                    usuNombre: results[0].usuNombre,
-                    usuCorreo: results[0].usuCorreo,
-                    usuRol: results[0].usuRol
-                })
+            } else if (results.length > 0 && results[0] !== null) {
+                if (data.usuContraseña === results[0].usuContraseña){
+                    res.json({
+                        usuId: results[0].usuId,
+                        usuNombre: results[0].usuNombre,
+                        usuCorreo: results[0].usuCorreo,
+                        usuRol: results[0].usuRol
+                    })
+                } else {
+                    res.json({
+                        message: 'Los datos introducidos son incorrectos',
+                        type: 'danger'
+                    })
+                }
             } else {
                 res.json({
-                    message: 'Los datos introducidos son incorrectos',
+                    message: 'Los datos introducidos no existen',
                     type: 'danger'
                 })
             }
