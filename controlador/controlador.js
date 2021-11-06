@@ -86,6 +86,7 @@ controlador.loginHandler = (req, res) => {
                         usuId: results[0].usuId,
                         usuNombre: results[0].usuNombre,
                         usuCorreo: results[0].usuCorreo,
+                        usuTelefono: results[0].usuTelefono,
                         usuRol: results[0].usuRol
                     })
                 } else {
