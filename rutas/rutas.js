@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const controlador = require('../controlador/controlador');
-const tables = ['/usuarios', '/testimonios', '/productos', '/servicios', '/compras', '/reservas']
+const tables = ['/usuarios', '/testimonios', '/productos', '/servicios',
+                '/compras', '/reservas', '/contacto', '/empleados',
+                '/establecimiento', '/mensajes']
 
 for (let item of tables){
     router.get(item, controlador.listItems);
